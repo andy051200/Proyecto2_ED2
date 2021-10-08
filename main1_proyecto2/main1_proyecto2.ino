@@ -50,6 +50,9 @@ bool b2 =1;   //variable booleana para J2
 int wenas;
 File myFile;
 bool iniciado=0;
+int buttonState = 0;         // current state of the button
+int lastButtonState = 0;     // previous state of the button
+int buttonPushCounter = 0;   // counter for the number of button presses
 /*-----------------------------------------------------------------------------
  ------------ P R O T O T I P O S   D E   F U N C I O N E S -------------------
  -----------------------------------------------------------------------------*/
@@ -136,9 +139,20 @@ void loop() {
   }
   //-------control de cual imagen se pone
   //antirrebote1
-  b2 = digitalRead(17);         //se toma la lectura del boton 2
+  buttonState = digitalRead(17);         //se toma la lectura del boton 2
+  if (buttonState != lastButtonState) {
+    if (buttonState == 1) {
+      wenas++;
+      Serial.println(wenas);
+    } 
+    else {
+      Serial.println("wenas");
+    }
+  }
+  delay(1);
+  lastButtonState = buttonState;
   //-------antirrebote2
-  if (b2==0 && antirrebote2==0){
+  /*if (b2==0 && antirrebote2==0){
     antirrebote2=1;
   }
   else{
@@ -146,14 +160,17 @@ void loop() {
   } 
   //-------accion luego del antirrebote1
   if (antirrebote2==1 && b2==0){
+    wenas++;
+    Serial.println(wenas);
+  }*/
 
+
+  if (wenas==15){
     LCD_Clear(0x00);
     mapeo_SD("yourock.txt");                       //imagen alma
     String text1 = "ganaste perro";         //pequeña descripcion
-    //delay(500);
     LCD_Print(text1, 60, 185, 2, 0x0000, 0xffff);  //caracteristicas de texto
   }
-  
   
   
 }
