@@ -5,7 +5,7 @@
  * Con ayuda de: José Guerra
  * Modificaciones y adaptación: Diego Morales
  * IE3027: Electrónica Digital 2 - 2021
- * adaptacion para uso de lab8 de Andy Bonilla
+ * adaptacion para uso de proyecto 2 de Andy Bonilla y Pablo Herrarte
  */
 //***************************************************************************************************************************************
 
@@ -66,8 +66,10 @@ void LCD_Print(String text, int x, int y, int fontSize, int color, int backgroun
 void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
 void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 void printDirectory(File dir, int numTabs); //informacion de directorio
-int ascii2hex(int a);
-void mapeo_SD(char doc[]);
+int ascii2hex(int a);                       //funcion de mapeo de texto para imagen
+void mapeo_SD(char doc[]);                  //despliegue de imagen mapeada
+//--
+void inicio(void);
 
 /*-----------------------------------------------------------------------------
  --------------------- I N T E R R U P C I O N E S ----------------------------
@@ -106,10 +108,9 @@ void mapeo_SD(char doc[]);
   printDirectory(myFile, 0);                    //se imprime el directorio de la SD
 
   //-------MENSAJES DE MENU AL INICIAR PROGRAMA
-  //FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c)
-  mapeo_SD("yo.txt"); 
+  mapeo_SD("jeje.txt"); 
   //LCD_Print(String text, int x, int y, int fontSize, int color, int background)
-  String text1 = "Lab 8 Andy Bonilla";                  //texto inicial a desplegar
+  String text1 = "Presiona un boton";                  //texto inicial a desplegar
   LCD_Print(text1, 10, 110, 2, 0x0000, 0xffff);
   delay(1000);
 }
@@ -129,31 +130,13 @@ void loop() {
   //-------accion luego del antirrebote1
   if (antirrebote1==1 && b1==0){
     antirrebote1=0;
-    LCD_Clear(0x00);
-    mapeo_SD("alma.txt");                       //imagen alma
-    String text1 = "Observatorio ALMA";         //pequeña descripcion    
-    LCD_Print(text1, 30, 10, 2, 0x0000, 0xffff);  //caracteristicas de texto
+    inicio();
+    
+    
+   
 
   }
-  //-------control de cual imagen se pone
-  //antirrebote1
-  b2 = digitalRead(17);         //se toma la lectura del boton 2
-  //-------antirrebote2
-  if (b2==0 && antirrebote2==0){
-    antirrebote2=1;
-  }
-  else{
-    antirrebote2=0;
-  } 
-  //-------accion luego del antirrebote1
-  if (antirrebote2==1 && b2==0){
-
-    LCD_Clear(0x00);
-    mapeo_SD("MyA.txt");                       //imagen alma
-    String text1 = "Mar y yo <3";         //pequeña descripcion
-    //delay(500);
-    LCD_Print(text1, 70, 140, 2, 0x0000, 0xffff);  //caracteristicas de texto
-  }
+  
   
   
   
@@ -582,4 +565,20 @@ void mapeo_SD(char doc[]) {
     Serial.println("No se pudo abrir la imagen, prueba nuevamente");
     myFile.close();
   }
+}
+//-------FUNCION PARA CUENTA REGRESIVA
+void inicio(void){
+  LCD_Clear(0x00);
+  String text1 = "Comienza en 3";                  //texto inicial a desplegar
+  LCD_Print(text1, 50, 110, 2, 0x0000, 0xffff);
+  delay(1000);
+  LCD_Clear(0x00);
+  String text2 = "Comienza en 2";                  //texto inicial a desplegar
+  LCD_Print(text2, 50, 110, 2, 0x0000, 0xffff);
+  delay(1000);
+  LCD_Clear(0x00);
+  String text3 = "Comienza en 1";                  //texto inicial a desplegar
+  LCD_Print(text3, 50, 110, 2, 0x0000, 0xffff);
+  delay(1000);
+  LCD_Clear(0x00);
 }
