@@ -49,6 +49,7 @@ bool b1 =1;   //variable booleanaa para J1
 bool b2 =1;   //variable booleana para J2
 int wenas;
 File myFile;
+bool iniciado=0;
 /*-----------------------------------------------------------------------------
  ------------ P R O T O T I P O S   D E   F U N C I O N E S -------------------
  -----------------------------------------------------------------------------*/
@@ -130,13 +131,28 @@ void loop() {
   //-------accion luego del antirrebote1
   if (antirrebote1==1 && b1==0){
     antirrebote1=0;
+    iniciado=1;
     inicio();
-    
-    
-   
-
   }
-  
+  //-------control de cual imagen se pone
+  //antirrebote1
+  b2 = digitalRead(17);         //se toma la lectura del boton 2
+  //-------antirrebote2
+  if (b2==0 && antirrebote2==0){
+    antirrebote2=1;
+  }
+  else{
+    antirrebote2=0;
+  } 
+  //-------accion luego del antirrebote1
+  if (antirrebote2==1 && b2==0){
+
+    LCD_Clear(0x00);
+    mapeo_SD("yourock.txt");                       //imagen alma
+    String text1 = "ganaste perro";         //pequeña descripcion
+    //delay(500);
+    LCD_Print(text1, 60, 185, 2, 0x0000, 0xffff);  //caracteristicas de texto
+  }
   
   
   
@@ -147,6 +163,25 @@ void loop() {
 /*-----------------------------------------------------------------------------
  ------------------------- F U N C I O N E S ----------------------------------
  -----------------------------------------------------------------------------*/
+//-------FUNCION PARA CUENTA REGRESIVA
+void inicio(void){
+  LCD_Clear(0x00);
+  String text1 = "Comienza en 3";                  //texto inicial a desplegar
+  LCD_Print(text1, 50, 110, 2, 0x0000, 0xffff);
+  delay(1000);
+  LCD_Clear(0x00);
+  String text2 = "Comienza en 2";                  //texto inicial a desplegar
+  LCD_Print(text2, 50, 110, 2, 0x0000, 0xffff);
+  delay(1000);
+  LCD_Clear(0x00);
+  String text3 = "Comienza en 1";                  //texto inicial a desplegar
+  LCD_Print(text3, 50, 110, 2, 0x0000, 0xffff);
+  delay(1000);
+  LCD_Clear(0x00);
+}
+
+
+ 
 //-------Función para inicializar LCD
 void LCD_Init(void) {
   pinMode(LCD_RST, OUTPUT);
@@ -565,20 +600,4 @@ void mapeo_SD(char doc[]) {
     Serial.println("No se pudo abrir la imagen, prueba nuevamente");
     myFile.close();
   }
-}
-//-------FUNCION PARA CUENTA REGRESIVA
-void inicio(void){
-  LCD_Clear(0x00);
-  String text1 = "Comienza en 3";                  //texto inicial a desplegar
-  LCD_Print(text1, 50, 110, 2, 0x0000, 0xffff);
-  delay(1000);
-  LCD_Clear(0x00);
-  String text2 = "Comienza en 2";                  //texto inicial a desplegar
-  LCD_Print(text2, 50, 110, 2, 0x0000, 0xffff);
-  delay(1000);
-  LCD_Clear(0x00);
-  String text3 = "Comienza en 1";                  //texto inicial a desplegar
-  LCD_Print(text3, 50, 110, 2, 0x0000, 0xffff);
-  delay(1000);
-  LCD_Clear(0x00);
 }
