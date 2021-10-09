@@ -44,6 +44,9 @@
 #define LCD_RD PE_1
 //-------VARIABLES DE PROGRAMA
 int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
+
+extern uint8_t fondo[];
+
 bool antirrebote1, antirrebote2;    //variables para antirrebote
 bool b1 =1;   //variable booleanaa para J1
 bool b2 =1;   //variable booleana para J2
@@ -136,6 +139,9 @@ void loop() {
     antirrebote1=0;
     iniciado=1;
     inicio();
+    delay(1000);
+    LCD_Bitmap(0, 0, 320, 240, fondo);
+    
   }
   //-------control de cual imagen se pone
   //antirrebote1
