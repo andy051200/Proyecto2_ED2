@@ -138,10 +138,32 @@ void loop() {
   if (antirrebote1==1 && b1==0){
     antirrebote1=0;
     iniciado=1;
-    inicio();
-    delay(1000);
     LCD_Bitmap(0, 0, 320, 240, arcade);
+    String text1 = "El primero que choque";                  //texto para las instrucciones del juego
+    String text2 = "el camino del otro,";                    //divido en lineas de juego
+    String text3 = "sera el ganador :D"; 
+    String text4 = "SUERTE :o";
+    LCD_Print(text1, 70, 90, 1, 0xffff, 0x0000);
+    LCD_Print(text2, 70, 110, 1, 0xffff, 0x0000);
+    LCD_Print(text3, 70, 130, 1, 0xffff, 0x0000);
+    LCD_Print(text4, 70, 160, 2, 0xffff, 0x0000);
+    delay(9000);
+    inicio();                                                 //funcion con semafo para inicio de juego
+    delay(1000);
+    //LCD_Bitmap(0, 0, 320, 240, arcade);                       //se despliega el fondo del arcade donde se jugara  
+    LCD_Clear(0x00);
+    for(int x = 0; x <320-32; x++){
+      delay(10);
     
+      int mario_index = (x/11)%8;
+
+      //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
+      int bowser_index = (x/11)%4;
+      //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
+      //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
+      LCD_Bitmap(x,175,32,24,tron);
+      V_line( x -1, 185, 2, 0x421b  );
+    }
   }
   //-------control de cual imagen se pone
   //antirrebote1
