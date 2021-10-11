@@ -46,7 +46,7 @@
 int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
 
 extern uint8_t fondo[];
-
+extern uint8_t arcade[];
 bool antirrebote1, antirrebote2;    //variables para antirrebote
 bool b1 =1;   //variable booleanaa para J1
 bool b2 =1;   //variable booleana para J2
@@ -115,7 +115,7 @@ void inicio(void);
   printDirectory(myFile, 0);                    //se imprime el directorio de la SD
 
   //-------MENSAJES DE MENU AL INICIAR PROGRAMA
-  mapeo_SD("jeje.txt"); 
+  mapeo_SD("inicio.txt"); 
   //LCD_Print(String text, int x, int y, int fontSize, int color, int background)
   String text1 = "Presiona un boton";                  //texto inicial a desplegar
   LCD_Print(text1, 10, 110, 2, 0x0000, 0xffff);
@@ -140,7 +140,7 @@ void loop() {
     iniciado=1;
     inicio();
     delay(1000);
-    LCD_Bitmap(0, 0, 320, 240, fondo);
+    LCD_Bitmap(0, 0, 320, 240, arcade);
     
   }
   //-------control de cual imagen se pone
