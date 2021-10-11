@@ -147,7 +147,7 @@ void loop() {
     LCD_Print(text2, 70, 110, 1, 0xffff, 0x0000);
     LCD_Print(text3, 70, 130, 1, 0xffff, 0x0000);
     LCD_Print(text4, 70, 160, 2, 0xffff, 0x0000);
-    delay(9000);
+    delay(1000);
     inicio();                                                 //funcion con semafo para inicio de juego
     delay(1000);
     //LCD_Bitmap(0, 0, 320, 240, arcade);                       //se despliega el fondo del arcade donde se jugara  
@@ -162,7 +162,9 @@ void loop() {
       //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
       //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
       LCD_Bitmap(x,175,32,24,tron);
-      V_line( x -1, 185, 2, 0x421b  );
+      V_line( x -1, 185, 2, 0x333FFF  );
+      LCD_Bitmap(x,145,32,24,tron2);
+      V_line( x -1, 155, 2, 0xFF9633  );
     }
   }
   //-------control de cual imagen se pone
