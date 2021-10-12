@@ -77,11 +77,17 @@ int ascii2hex(int a);                       //funcion de mapeo de texto para ima
 void mapeo_SD(char doc[]);                  //despliegue de imagen mapeada
 //--
 void inicio(void);
-
+void juego(void);
 /*-----------------------------------------------------------------------------
  --------------------- I N T E R R U P C I O N E S ----------------------------
  -----------------------------------------------------------------------------*/
-//de momento no hay interrupciones
+void ISR1 (){
+  wenas++;
+}
+void ISR2 (){
+  iniciado=!iniciado;
+}
+
 
 /*-----------------------------------------------------------------------------
  ------------------------------ S E T   U P -----------------------------------
@@ -91,16 +97,17 @@ void inicio(void);
   pinMode(31, INPUT_PULLUP);    //boton para imagen 1
   pinMode(17, INPUT_PULLUP);    //boton para imagen 2
   pinMode(PA_3, OUTPUT);    //se define salida del CS para comunicacion con SD
+  attachInterrupt(digitalPinToInterrupt(17), ISR1, FALLING);
+  attachInterrupt(digitalPinToInterrupt(31), ISR2, FALLING);
   //-------INICIALIZACION DE PROTOCOLOS DE COMUNICACION
   SPI.setModule(0);         //SPI para SD
-  
+ 
   SysCtlClockSet(SYSCTL_SYSDIV_2_5|SYSCTL_USE_PLL|SYSCTL_OSC_MAIN|SYSCTL_XTAL_16MHZ);
   Serial.begin(9600);       //UART para menu
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
   //-------INICIALIZACION DE TFT
   LCD_Init();
   LCD_Clear(0x00);
-
     
   //-------MENSAJES DE INICIALIZACION DE COMUNICACION CON SD
   Serial.println("Inicializando tarjeta SD...");
@@ -115,74 +122,62 @@ void inicio(void);
   printDirectory(myFile, 0);                    //se imprime el directorio de la SD
 
   //-------MENSAJES DE MENU AL INICIAR PROGRAMA
-  mapeo_SD("inicio.txt"); 
+  mapeo_SD("inicio.txt");
   //LCD_Print(String text, int x, int y, int fontSize, int color, int background)
   String text1 = "Presiona un boton";                  //texto inicial a desplegar
   LCD_Print(text1, 10, 110, 2, 0x0000, 0xffff);
   delay(1000);
+  
 }
 /*-----------------------------------------------------------------------------
  -------------------------- M A I N   L O O P ---------------------------------
  -----------------------------------------------------------------------------*/
 void loop() {
-  //antirrebote1
-  b1 = digitalRead(31);         //se toma la lectura del boton 1
+  while(iniciado==1){
+    //juego();
+    LCD_Clear(0x00);
+    
+    LCD_Bitmap(wenas,175,32,24,tron);
+    V_line(wenas -1, 185, 2, 0x333FFF  );
+    LCD_Bitmap(wenas,145,32,24,tron2);
+    V_line( wenas -1, 155, 2, 0xFF9633  );
+    if (iniciado ==0){
+      break;
+    }
+  }
+  /*
   //-------antirrebote1
+  b1 = digitalRead(31);         //se toma la lectura del boton 1
   if (b1==0 && antirrebote1==0){
     antirrebote1=1;
   }
   else{
     antirrebote1=0;
   } 
-  //-------accion luego del antirrebote1
+  
   if (antirrebote1==1 && b1==0){
     antirrebote1=0;
     iniciado=1;
-    LCD_Bitmap(0, 0, 320, 240, arcade);
-    String text1 = "El primero que choque";                  //texto para las instrucciones del juego
-    String text2 = "el camino del otro,";                    //divido en lineas de juego
-    String text3 = "sera el ganador :D"; 
-    String text4 = "SUERTE :o";
-    LCD_Print(text1, 70, 90, 1, 0xffff, 0x0000);
-    LCD_Print(text2, 70, 110, 1, 0xffff, 0x0000);
-    LCD_Print(text3, 70, 130, 1, 0xffff, 0x0000);
-    LCD_Print(text4, 70, 160, 2, 0xffff, 0x0000);
-    delay(1000);
-    inicio();                                                 //funcion con semafo para inicio de juego
-    delay(1000);
-    //LCD_Bitmap(0, 0, 320, 240, arcade);                       //se despliega el fondo del arcade donde se jugara  
-    LCD_Clear(0x00);
-    for(int x = 0; x <320-32; x++){
-      delay(10);
-    
-      int mario_index = (x/11)%8;
+    Serial.println(iniciado);
+  }
+  else{
+    iniciado=0;
+  }
+  //-----------
+  if (iniciado>0){
+    juego();
+  }
+  */
+  Serial.print(wenas);
 
-      //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
-      int bowser_index = (x/11)%4;
-      //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
-      //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
-      LCD_Bitmap(x,175,32,24,tron);
-      V_line( x -1, 185, 2, 0x333FFF  );
-      LCD_Bitmap(x,145,32,24,tron2);
-      V_line( x -1, 155, 2, 0xFF9633  );
-    }
-  }
-  //-------control de cual imagen se pone
-  //antirrebote1
-  buttonState = digitalRead(17);         //se toma la lectura del boton 2
-  if (buttonState != lastButtonState) {
-    if (buttonState == 1) {
-      wenas++;
-      Serial.println(wenas);
-    } 
-    else {
-      Serial.println("wenas");
-    }
-  }
-  delay(1);
-  lastButtonState = buttonState;
+
+
+
+
+  
   //-------antirrebote2
-  /*if (b2==0 && antirrebote2==0){
+  /*b2 = digitalRead(17);         //se toma la lectura del boton 1
+  if (b2==0 && antirrebote2==0){
     antirrebote2=1;
   }
   else{
@@ -190,17 +185,18 @@ void loop() {
   } 
   //-------accion luego del antirrebote1
   if (antirrebote2==1 && b2==0){
+    antirrebote2=0;
     wenas++;
     Serial.println(wenas);
   }*/
+  
 
-
-  if (wenas==15){
+  /*if (wenas==15){
     LCD_Clear(0x00);
     mapeo_SD("yourock.txt");                       //imagen alma
     String text1 = "ganaste perro";         //pequeña descripcion
     LCD_Print(text1, 60, 185, 2, 0x0000, 0xffff);  //caracteristicas de texto
-  }
+  }*/
   
   
 }
@@ -227,6 +223,27 @@ void inicio(void){
   LCD_Clear(0x00);
 }
 
+void juego(void){
+  LCD_Bitmap(0, 0, 320, 240, arcade);
+  String text1 = "El primero que choque";                  //texto para las instrucciones del juego
+  String text2 = "el camino del otro,";                    //divido en lineas de juego
+  String text3 = "sera el ganador :D"; 
+  String text4 = "SUERTE :o";
+  LCD_Print(text1, 70, 90, 1, 0xffff, 0x0000);
+  LCD_Print(text2, 70, 110, 1, 0xffff, 0x0000);
+  LCD_Print(text3, 70, 130, 1, 0xffff, 0x0000);
+  LCD_Print(text4, 70, 160, 2, 0xffff, 0x0000);
+  delay(1000);
+  inicio();                                                 //funcion con semafo para inicio de juego
+  delay(1000);
+  //LCD_Bitmap(0, 0, 320, 240, arcade);                       //se despliega el fondo del arcade donde se jugara  
+  LCD_Clear(0x00);
+    
+  LCD_Bitmap(wenas,175,32,24,tron);
+  V_line(wenas -1, 185, 2, 0x333FFF  );
+  LCD_Bitmap(wenas,145,32,24,tron2);
+  V_line( wenas -1, 155, 2, 0xFF9633  );
+}
 
  
 //-------Función para inicializar LCD
