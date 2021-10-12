@@ -105,7 +105,7 @@ void __interrupt() isr(void) //funcion de interrupciones
     if (PIR1bits.TXIF)
     {
         cuenta_uart++;      //se suma variable guia
-        mandar_datos();     //invoco funcion para mandar uart
+        
         PIR1bits.TXIF=0;    //apago interrupcion
     }
 }
@@ -117,6 +117,7 @@ void main(void) {
     while(1)
     {
         botonazos();    //se llama funcion de botonazos
+        mandar_datos();     //invoco funcion para mandar uart
         
     }
     return;
@@ -164,8 +165,6 @@ void setup(void)
     INTCONbits.PEIE = 1;                //habilitan interrupciones por perifericos
     INTCONbits.RBIE=1;                  //se  habilita IntOnChange B
     INTCONbits.RBIF=0;                  //se  apaga bandera IntOnChange B
-    PIE1bits.TXIE=1;            //enable interrupcion de tx uart
-    PIR1bits.TXIF=0;            //apago bandera interrupcion tx uart
     IOCBbits.IOCB0=1;                   //habilita IOCB RB0
     IOCBbits.IOCB1=1;                   //habilita IOCB RB1
     IOCBbits.IOCB2=1;                   //habilita IOCB RB2
@@ -174,6 +173,8 @@ void setup(void)
     IOCBbits.IOCB5=1;                   //habilita IOCB RB5
     IOCBbits.IOCB6=1;                   //habilita IOCB RB6
     IOCBbits.IOCB7=1;                   //habilita IOCB RB7
+    PIE1bits.TXIE=1;            //enable interrupcion de tx uart
+    PIR1bits.TXIF=0;            //apago bandera interrupcion tx uart
 }
 /*-----------------------------------------------------------------------------
  --------------------------------- FUNCIONES ----------------------------------
@@ -187,6 +188,7 @@ void botonazos(void)
     {
         antirrebote0=0;
         izqJ1=1;
+        PORTD=0b00000001;
         
     }
     else
@@ -271,7 +273,7 @@ void mandar_datos(void)
     switch(cuenta_uart)
     {
         case(1):
-            TXREG=(izqJ1+0x30);
+            TXREG=(5+0x30);
             break;
         case(2):
             TXREG=44;

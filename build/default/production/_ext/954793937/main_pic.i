@@ -2729,7 +2729,7 @@ void __attribute__((picinterrupt(("")))) isr(void)
     if (PIR1bits.TXIF)
     {
         cuenta_uart++;
-        mandar_datos();
+
         PIR1bits.TXIF=0;
     }
 }
@@ -2741,6 +2741,7 @@ void main(void) {
     while(1)
     {
         botonazos();
+        mandar_datos();
 
     }
     return;
@@ -2788,8 +2789,6 @@ void setup(void)
     INTCONbits.PEIE = 1;
     INTCONbits.RBIE=1;
     INTCONbits.RBIF=0;
-    PIE1bits.TXIE=1;
-    PIR1bits.TXIF=0;
     IOCBbits.IOCB0=1;
     IOCBbits.IOCB1=1;
     IOCBbits.IOCB2=1;
@@ -2798,6 +2797,8 @@ void setup(void)
     IOCBbits.IOCB5=1;
     IOCBbits.IOCB6=1;
     IOCBbits.IOCB7=1;
+    PIE1bits.TXIE=1;
+    PIR1bits.TXIF=0;
 }
 
 
@@ -2811,6 +2812,7 @@ void botonazos(void)
     {
         antirrebote0=0;
         izqJ1=1;
+        PORTD=0b00000001;
 
     }
     else
@@ -2895,7 +2897,7 @@ void mandar_datos(void)
     switch(cuenta_uart)
     {
         case(1):
-            TXREG=(izqJ1+0x30);
+            TXREG=(5+0x30);
             break;
         case(2):
             TXREG=44;

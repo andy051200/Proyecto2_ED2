@@ -7,11 +7,11 @@
 [v _isr isr `II(v  1 e 1 0 ]
 "115
 [v _main main `(v  1 e 1 0 ]
-"127
+"128
 [v _setup setup `(v  1 e 1 0 ]
-"182
+"183
 [v _botonazos botonazos `(v  1 e 1 0 ]
-"269
+"271
 [v _mandar_datos mandar_datos `(v  1 e 1 0 ]
 "16 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/Osc_config.c
 [v _osc_config osc_config `(v  1 e 1 0 ]
@@ -125,7 +125,7 @@
 [v _TRISBbits TRISBbits `VES131  1 e 1 @134 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S203 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S229 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -134,8 +134,8 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S211 . 1 `S203 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES211  1 e 1 @140 ]
+[u S237 . 1 `S229 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES237  1 e 1 @140 ]
 [s S22 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
@@ -164,10 +164,10 @@
 ]
 [u S188 . 1 `S177 1 . 1 0 `S179 1 . 1 0 ]
 [v _WPUBbits WPUBbits `VES188  1 e 1 @149 ]
-[s S222 . 1 `uc 1 IOCB 1 0 :8:0 
+[s S203 . 1 `uc 1 IOCB 1 0 :8:0 
 ]
 "2436
-[s S224 . 1 `uc 1 IOCB0 1 0 :1:0 
+[s S205 . 1 `uc 1 IOCB0 1 0 :1:0 
 `uc 1 IOCB1 1 0 :1:1 
 `uc 1 IOCB2 1 0 :1:2 
 `uc 1 IOCB3 1 0 :1:3 
@@ -176,8 +176,8 @@
 `uc 1 IOCB6 1 0 :1:6 
 `uc 1 IOCB7 1 0 :1:7 
 ]
-[u S233 . 1 `S222 1 . 1 0 `S224 1 . 1 0 ]
-[v _IOCBbits IOCBbits `VES233  1 e 1 @150 ]
+[u S214 . 1 `S203 1 . 1 0 `S205 1 . 1 0 ]
+[v _IOCBbits IOCBbits `VES214  1 e 1 @150 ]
 [s S361 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
@@ -244,12 +244,12 @@
 "115
 [v _main main `(v  1 e 1 0 ]
 {
-"123
+"124
 } 0
-"127
+"128
 [v _setup setup `(v  1 e 1 0 ]
 {
-"177
+"178
 } 0
 "21 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/UART_CONFIG.c
 [v _uart_config uart_config `(v  1 e 1 0 ]
@@ -264,18 +264,18 @@
 [v osc_config@freq freq `uc  1 a 1 2 ]
 "42
 } 0
-"182 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c
+"271 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c
+[v _mandar_datos mandar_datos `(v  1 e 1 0 ]
+{
+"319
+} 0
+"183
 [v _botonazos botonazos `(v  1 e 1 0 ]
 {
-"267
+"269
 } 0
 "60
 [v _isr isr `II(v  1 e 1 0 ]
 {
 "111
-} 0
-"269
-[v _mandar_datos mandar_datos `(v  1 e 1 0 ]
-{
-"317
 } 0
