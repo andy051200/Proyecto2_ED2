@@ -1,0 +1,1177 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"465 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"543
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 543:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 542: typedef union {
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"56 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 56: void mandar_datos(void);
+[v _mandar_datos `(v ~T0 @X0 0 ef ]
+[p mainexit ]
+"54
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 54: void setup(void);
+[v _setup `(v ~T0 @X0 0 ef ]
+"55
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 55: void botonazos(void);
+[v _botonazos `(v ~T0 @X0 0 ef ]
+"3387 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3449
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1416
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"1484
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1484:     struct {
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1483
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1483: typedef union {
+[u S54 `S55 1 ]
+[n S54 . . ]
+"1495
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1495: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x086)));
+[v _TRISBbits `VS54 ~T0 @X0 0 e@134 ]
+"1602
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"166
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"14 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/Osc_config.h
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/Osc_config.h: 14: void osc_config(uint8_t freq);
+[v _osc_config `(v ~T0 @X0 0 ef1`uc ]
+"17 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/UART_CONFIG.h
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/UART_CONFIG.h: 17: void uart_config(void);
+[v _uart_config `(v ~T0 @X0 0 ef ]
+"1352 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1352:     struct {
+[s S50 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"1360
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1360:     struct {
+[s S51 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S51 . PS0 PS1 PS2 ]
+"1351
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1351: typedef union {
+[u S49 `S50 1 `S51 1 ]
+[n S49 . . . ]
+"1366
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1366: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS49 ~T0 @X0 0 e@129 ]
+"2352
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2352:     struct {
+[s S90 :8 `uc 1 ]
+[n S90 . WPUB ]
+"2355
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2355:     struct {
+[s S91 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S91 . WPUB0 WPUB1 WPUB2 WPUB3 WPUB4 WPUB5 WPUB6 WPUB7 ]
+"2351
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2351: typedef union {
+[u S89 `S90 1 `S91 1 ]
+[n S89 . . . ]
+"2366
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2366: extern volatile WPUBbits_t WPUBbits __attribute__((address(0x095)));
+[v _WPUBbits `VS89 ~T0 @X0 0 e@149 ]
+"1708
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1708:     struct {
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"1707
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1707: typedef union {
+[u S62 `S63 1 ]
+[n S62 . . ]
+"1718
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
+[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
+"2422
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2422:     struct {
+[s S93 :8 `uc 1 ]
+[n S93 . IOCB ]
+"2425
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2425:     struct {
+[s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S94 . IOCB0 IOCB1 IOCB2 IOCB3 IOCB4 IOCB5 IOCB6 IOCB7 ]
+"2421
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2421: typedef union {
+[u S92 `S93 1 `S94 1 ]
+[n S92 . . . ]
+"2436
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2436: extern volatile IOCBbits_t IOCBbits __attribute__((address(0x096)));
+[v _IOCBbits `VS92 ~T0 @X0 0 e@150 ]
+"234
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 234:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"233
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 233: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"245
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 245: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+"1133
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"15 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c
+[p x FOSC  =  INTRC_NOCLKOUT    ]
+"16
+[p x WDTE  =  OFF        ]
+"17
+[p x PWRTE  =  OFF       ]
+"18
+[p x MCLRE  =  OFF       ]
+"19
+[p x CP  =  OFF          ]
+"20
+[p x CPD  =  OFF         ]
+"21
+[p x BOREN  =  OFF       ]
+"22
+[p x IESO  =  OFF        ]
+"23
+[p x FCMEN  =  OFF       ]
+"24
+[p x LVP  =  OFF         ]
+"27
+[p x BOR4V  =  BOR40V    ]
+"28
+[p x WRT  =  OFF         ]
+"54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"230
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 230: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"292
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 292: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"354
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 354: __asm("PORTD equ 08h");
+[; <" PORTD equ 08h ;# ">
+"416
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 416: __asm("PORTE equ 09h");
+[; <" PORTE equ 09h ;# ">
+"454
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 454: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"461
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 461: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"539
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 539: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"595
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 595: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"652
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 652: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"659
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 659: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"666
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 666: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"673
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 673: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"767
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 767: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"774
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 774: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"845
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 845: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"852
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 852: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"922
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 922: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"929
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 929: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"936
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 936: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"943
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 943: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"1040
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1040: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"1135
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1135: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"1142
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1142: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"1149
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1149: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"1156
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1156: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"1163
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1163: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"1170
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1170: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1240
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1240: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1247
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1247: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1348
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1348: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1418
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1418: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1480
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1480: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1542
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1542: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1604
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1604: __asm("TRISD equ 088h");
+[; <" TRISD equ 088h ;# ">
+"1666
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1666: __asm("TRISE equ 089h");
+[; <" TRISE equ 089h ;# ">
+"1704
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1704: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1760
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1760: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1817
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1817: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1864
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1864: __asm("OSCCON equ 08Fh");
+[; <" OSCCON equ 08Fh ;# ">
+"1929
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1929: __asm("OSCTUNE equ 090h");
+[; <" OSCTUNE equ 090h ;# ">
+"1981
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1981: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"2043
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2043: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"2050
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2050: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"2057
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2057: __asm("SSPMSK equ 093h");
+[; <" SSPMSK equ 093h ;# ">
+"2062
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2062: __asm("MSK equ 093h");
+[; <" MSK equ 093h ;# ">
+"2179
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2179: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"2348
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2348: __asm("WPUB equ 095h");
+[; <" WPUB equ 095h ;# ">
+"2418
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2418: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"2488
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2488: __asm("VRCON equ 097h");
+[; <" VRCON equ 097h ;# ">
+"2558
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2558: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"2644
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2644: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"2706
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2706: __asm("SPBRGH equ 09Ah");
+[; <" SPBRGH equ 09Ah ;# ">
+"2776
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2776: __asm("PWM1CON equ 09Bh");
+[; <" PWM1CON equ 09Bh ;# ">
+"2846
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2846: __asm("ECCPAS equ 09Ch");
+[; <" ECCPAS equ 09Ch ;# ">
+"2928
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2928: __asm("PSTRCON equ 09Dh");
+[; <" PSTRCON equ 09Dh ;# ">
+"2972
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2972: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2979
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2979: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"3013
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3013: __asm("WDTCON equ 0105h");
+[; <" WDTCON equ 0105h ;# ">
+"3066
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3066: __asm("CM1CON0 equ 0107h");
+[; <" CM1CON0 equ 0107h ;# ">
+"3131
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3131: __asm("CM2CON0 equ 0108h");
+[; <" CM2CON0 equ 0108h ;# ">
+"3196
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3196: __asm("CM2CON1 equ 0109h");
+[; <" CM2CON1 equ 0109h ;# ">
+"3247
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3247: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"3252
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3252: __asm("EEDAT equ 010Ch");
+[; <" EEDAT equ 010Ch ;# ">
+"3259
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3259: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"3266
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3266: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"3273
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3273: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"3280
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3280: __asm("SRCON equ 0185h");
+[; <" SRCON equ 0185h ;# ">
+"3337
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3337: __asm("BAUDCTL equ 0187h");
+[; <" BAUDCTL equ 0187h ;# ">
+"3389
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3389: __asm("ANSEL equ 0188h");
+[; <" ANSEL equ 0188h ;# ">
+"3451
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3451: __asm("ANSELH equ 0189h");
+[; <" ANSELH equ 0189h ;# ">
+"3501
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3501: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"3546
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"44 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 44: unsigned char antirrebote0,antirrebote1;
+[v _antirrebote0 `uc ~T0 @X0 1 e ]
+[v _antirrebote1 `uc ~T0 @X0 1 e ]
+"45
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 45: unsigned char antirrebote2,antirrebote3;
+[v _antirrebote2 `uc ~T0 @X0 1 e ]
+[v _antirrebote3 `uc ~T0 @X0 1 e ]
+"46
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 46: unsigned char antirrebote4,antirrebote5;
+[v _antirrebote4 `uc ~T0 @X0 1 e ]
+[v _antirrebote5 `uc ~T0 @X0 1 e ]
+"47
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 47: unsigned char antirrebote6,antirrebote7;
+[v _antirrebote6 `uc ~T0 @X0 1 e ]
+[v _antirrebote7 `uc ~T0 @X0 1 e ]
+"48
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 48: unsigned char izqJ1, derJ1, upJ1, downJ1;
+[v _izqJ1 `uc ~T0 @X0 1 e ]
+[v _derJ1 `uc ~T0 @X0 1 e ]
+[v _upJ1 `uc ~T0 @X0 1 e ]
+[v _downJ1 `uc ~T0 @X0 1 e ]
+"49
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 49: unsigned char izqJ2, derJ2, upJ2, downJ2;
+[v _izqJ2 `uc ~T0 @X0 1 e ]
+[v _derJ2 `uc ~T0 @X0 1 e ]
+[v _upJ2 `uc ~T0 @X0 1 e ]
+[v _downJ2 `uc ~T0 @X0 1 e ]
+"50
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 50: unsigned char cuenta_uart;
+[v _cuenta_uart `uc ~T0 @X0 1 e ]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"60
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 60: void __attribute__((picinterrupt(("")))) isr(void)
+[v _isr `(v ~T1 @X0 1 ef ]
+"61
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 61: {
+{
+[e :U _isr ]
+[f ]
+"63
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 63:     if (INTCONbits.RBIF)
+[e $ ! != -> . . _INTCONbits 0 0 `i -> 0 `i 139  ]
+"64
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 64:     {
+{
+"65
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 65:         switch(PORTB)
+[e $U 141  ]
+"66
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 66:         {
+{
+"67
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 67:             case(0b11111110):
+[e :U 142 ]
+"68
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 68:                 antirrebote0=1;
+[e = _antirrebote0 -> -> 1 `i `uc ]
+"69
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 69:                 break;
+[e $U 140  ]
+"70
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 70:             case(0b11111101):
+[e :U 143 ]
+"71
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 71:                 antirrebote1=1;
+[e = _antirrebote1 -> -> 1 `i `uc ]
+"72
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 72:                 break;
+[e $U 140  ]
+"73
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 73:             case(0b11111011):
+[e :U 144 ]
+"74
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 74:                 antirrebote2=1;
+[e = _antirrebote2 -> -> 1 `i `uc ]
+"75
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 75:                 break;
+[e $U 140  ]
+"76
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 76:             case(0b11110111):
+[e :U 145 ]
+"77
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 77:                 antirrebote3=1;
+[e = _antirrebote3 -> -> 1 `i `uc ]
+"78
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 78:                 break;
+[e $U 140  ]
+"79
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 79:             case(0b11101111):
+[e :U 146 ]
+"80
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 80:                 antirrebote4=1;
+[e = _antirrebote4 -> -> 1 `i `uc ]
+"81
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 81:                 break;
+[e $U 140  ]
+"82
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 82:             case(0b11011111):
+[e :U 147 ]
+"83
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 83:                 antirrebote5=1;
+[e = _antirrebote5 -> -> 1 `i `uc ]
+"84
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 84:                 break;
+[e $U 140  ]
+"85
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 85:             case(0b10111111):
+[e :U 148 ]
+"86
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 86:                 antirrebote6=1;
+[e = _antirrebote6 -> -> 1 `i `uc ]
+"87
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 87:                 break;
+[e $U 140  ]
+"88
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 88:             case(0b01111111):
+[e :U 149 ]
+"89
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 89:                 antirrebote7=1;
+[e = _antirrebote7 -> -> 1 `i `uc ]
+"90
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 90:                 break;
+[e $U 140  ]
+"91
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 91:             default:
+[e :U 150 ]
+"92
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 92:                 antirrebote0=0;
+[e = _antirrebote0 -> -> 0 `i `uc ]
+"93
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 93:                 antirrebote1=0;
+[e = _antirrebote1 -> -> 0 `i `uc ]
+"94
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 94:                 antirrebote2=0;
+[e = _antirrebote2 -> -> 0 `i `uc ]
+"95
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 95:                 antirrebote3=0;
+[e = _antirrebote3 -> -> 0 `i `uc ]
+"96
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 96:                 antirrebote4=0;
+[e = _antirrebote4 -> -> 0 `i `uc ]
+"97
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 97:                 antirrebote5=0;
+[e = _antirrebote5 -> -> 0 `i `uc ]
+"98
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 98:                 antirrebote6=0;
+[e = _antirrebote6 -> -> 0 `i `uc ]
+"99
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 99:                 antirrebote7=0;
+[e = _antirrebote7 -> -> 0 `i `uc ]
+"100
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 100:                 break;
+[e $U 140  ]
+"101
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 101:         }
+}
+[e $U 140  ]
+[e :U 141 ]
+[e [\ -> _PORTB `i , $ -> 254 `i 142
+ , $ -> 253 `i 143
+ , $ -> 251 `i 144
+ , $ -> 247 `i 145
+ , $ -> 239 `i 146
+ , $ -> 223 `i 147
+ , $ -> 191 `i 148
+ , $ -> 127 `i 149
+ 150 ]
+[e :U 140 ]
+"102
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 102:         INTCONbits.RBIF=0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"103
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 103:     }
+}
+[e :U 139 ]
+"105
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 105:     if (PIR1bits.TXIF)
+[e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 151  ]
+"106
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 106:     {
+{
+"107
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 107:         cuenta_uart++;
+[e ++ _cuenta_uart -> -> 1 `i `uc ]
+"108
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 108:         mandar_datos();
+[e ( _mandar_datos ..  ]
+"109
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 109:         PIR1bits.TXIF=0;
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+"110
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 110:     }
+}
+[e :U 151 ]
+"111
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 111: }
+[e :UE 138 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"115
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 115: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"116
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 116:     setup();
+[e ( _setup ..  ]
+"117
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 117:     while(1)
+[e :U 154 ]
+"118
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 118:     {
+{
+"119
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 119:         botonazos();
+[e ( _botonazos ..  ]
+"121
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 121:     }
+}
+[e :U 153 ]
+[e $U 154  ]
+[e :U 155 ]
+"122
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 122:     return;
+[e $UE 152  ]
+"123
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 123: }
+[e :UE 152 ]
+}
+"127
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 127: void setup(void)
+[v _setup `(v ~T0 @X0 1 ef ]
+"128
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 128: {
+{
+[e :U _setup ]
+[f ]
+"131
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 131:     ANSEL=0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"132
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 132:     ANSELH=0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"134
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 134:     TRISA=0;
+[e = _TRISA -> -> 0 `i `uc ]
+"135
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 135:     TRISBbits.TRISB0=1;
+[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
+"136
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 136:     TRISBbits.TRISB1=1;
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+"137
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 137:     TRISBbits.TRISB2=1;
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
+"138
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 138:     TRISBbits.TRISB3=1;
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+"139
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 139:     TRISBbits.TRISB4=1;
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+"140
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 140:     TRISBbits.TRISB5=1;
+[e = . . _TRISBbits 0 5 -> -> 1 `i `uc ]
+"141
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 141:     TRISBbits.TRISB6=1;
+[e = . . _TRISBbits 0 6 -> -> 1 `i `uc ]
+"142
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 142:     TRISBbits.TRISB7=1;
+[e = . . _TRISBbits 0 7 -> -> 1 `i `uc ]
+"143
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 143:     TRISD=0;
+[e = _TRISD -> -> 0 `i `uc ]
+"145
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 145:     PORTA=0;
+[e = _PORTA -> -> 0 `i `uc ]
+"146
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 146:     PORTB=0;
+[e = _PORTB -> -> 0 `i `uc ]
+"147
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 147:     PORTD=0;
+[e = _PORTD -> -> 0 `i `uc ]
+"149
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 149:     osc_config(4);
+[e ( _osc_config (1 -> -> 4 `i `uc ]
+"151
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 151:     uart_config();
+[e ( _uart_config ..  ]
+"153
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 153:     OPTION_REGbits.nRBPU=0;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+"154
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 154:     WPUBbits.WPUB0=1;
+[e = . . _WPUBbits 1 0 -> -> 1 `i `uc ]
+"155
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 155:     WPUBbits.WPUB1=1;
+[e = . . _WPUBbits 1 1 -> -> 1 `i `uc ]
+"156
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 156:     WPUBbits.WPUB2=1;
+[e = . . _WPUBbits 1 2 -> -> 1 `i `uc ]
+"157
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 157:     WPUBbits.WPUB3=1;
+[e = . . _WPUBbits 1 3 -> -> 1 `i `uc ]
+"158
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 158:     WPUBbits.WPUB4=1;
+[e = . . _WPUBbits 1 4 -> -> 1 `i `uc ]
+"159
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 159:     WPUBbits.WPUB5=1;
+[e = . . _WPUBbits 1 5 -> -> 1 `i `uc ]
+"160
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 160:     WPUBbits.WPUB6=1;
+[e = . . _WPUBbits 1 6 -> -> 1 `i `uc ]
+"161
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 161:     WPUBbits.WPUB7=1;
+[e = . . _WPUBbits 1 7 -> -> 1 `i `uc ]
+"163
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 163:     INTCONbits.GIE=1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"164
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 164:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"165
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 165:     INTCONbits.RBIE=1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"166
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 166:     INTCONbits.RBIF=0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"167
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 167:     PIE1bits.TXIE=1;
+[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
+"168
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 168:     PIR1bits.TXIF=0;
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+"169
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 169:     IOCBbits.IOCB0=1;
+[e = . . _IOCBbits 1 0 -> -> 1 `i `uc ]
+"170
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 170:     IOCBbits.IOCB1=1;
+[e = . . _IOCBbits 1 1 -> -> 1 `i `uc ]
+"171
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 171:     IOCBbits.IOCB2=1;
+[e = . . _IOCBbits 1 2 -> -> 1 `i `uc ]
+"172
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 172:     IOCBbits.IOCB3=1;
+[e = . . _IOCBbits 1 3 -> -> 1 `i `uc ]
+"173
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 173:     IOCBbits.IOCB4=1;
+[e = . . _IOCBbits 1 4 -> -> 1 `i `uc ]
+"174
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 174:     IOCBbits.IOCB5=1;
+[e = . . _IOCBbits 1 5 -> -> 1 `i `uc ]
+"175
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 175:     IOCBbits.IOCB6=1;
+[e = . . _IOCBbits 1 6 -> -> 1 `i `uc ]
+"176
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 176:     IOCBbits.IOCB7=1;
+[e = . . _IOCBbits 1 7 -> -> 1 `i `uc ]
+"177
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 177: }
+[e :UE 156 ]
+}
+"182
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 182: void botonazos(void)
+[v _botonazos `(v ~T0 @X0 1 ef ]
+"183
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 183: {
+{
+[e :U _botonazos ]
+[f ]
+"186
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 186:     if(antirrebote0==1 && PORTBbits.RB0==0)
+[e $ ! && == -> _antirrebote0 `i -> 1 `i == -> . . _PORTBbits 0 0 `i -> 0 `i 158  ]
+"187
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 187:     {
+{
+"188
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 188:         antirrebote0=0;
+[e = _antirrebote0 -> -> 0 `i `uc ]
+"189
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 189:         izqJ1=1;
+[e = _izqJ1 -> -> 1 `i `uc ]
+"191
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 191:     }
+}
+[e $U 159  ]
+"192
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 192:     else
+[e :U 158 ]
+"193
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 193:     {
+{
+"194
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 194:         izqJ1=0;
+[e = _izqJ1 -> -> 0 `i `uc ]
+"195
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 195:     }
+}
+[e :U 159 ]
+"197
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 197:     if(antirrebote1==1 && PORTBbits.RB1==0)
+[e $ ! && == -> _antirrebote1 `i -> 1 `i == -> . . _PORTBbits 0 1 `i -> 0 `i 160  ]
+"198
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 198:     {
+{
+"199
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 199:         antirrebote1=0;
+[e = _antirrebote1 -> -> 0 `i `uc ]
+"200
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 200:         derJ1=1;
+[e = _derJ1 -> -> 1 `i `uc ]
+"201
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 201:     }
+}
+[e $U 161  ]
+"202
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 202:     else
+[e :U 160 ]
+"203
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 203:     {
+{
+"204
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 204:         derJ1=0;
+[e = _derJ1 -> -> 0 `i `uc ]
+"205
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 205:     }
+}
+[e :U 161 ]
+"207
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 207:     if(antirrebote2==1 && PORTBbits.RB2==0)
+[e $ ! && == -> _antirrebote2 `i -> 1 `i == -> . . _PORTBbits 0 2 `i -> 0 `i 162  ]
+"208
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 208:     {
+{
+"209
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 209:         antirrebote2=0;
+[e = _antirrebote2 -> -> 0 `i `uc ]
+"210
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 210:         upJ1=1;
+[e = _upJ1 -> -> 1 `i `uc ]
+"211
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 211:     }
+}
+[e $U 163  ]
+"212
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 212:     else
+[e :U 162 ]
+"213
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 213:     {
+{
+"214
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 214:         upJ1=0;
+[e = _upJ1 -> -> 0 `i `uc ]
+"215
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 215:     }
+}
+[e :U 163 ]
+"217
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 217:     if(antirrebote3==1 && PORTBbits.RB3==0)
+[e $ ! && == -> _antirrebote3 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 0 `i 164  ]
+"218
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 218:     {
+{
+"219
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 219:         antirrebote3=0;
+[e = _antirrebote3 -> -> 0 `i `uc ]
+"220
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 220:         downJ1=1;
+[e = _downJ1 -> -> 1 `i `uc ]
+"221
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 221:     }
+}
+[e $U 165  ]
+"222
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 222:     else
+[e :U 164 ]
+"223
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 223:     {
+{
+"224
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 224:         downJ1=0;
+[e = _downJ1 -> -> 0 `i `uc ]
+"225
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 225:     }
+}
+[e :U 165 ]
+"228
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 228:     if(antirrebote4==1 && PORTBbits.RB4==0)
+[e $ ! && == -> _antirrebote4 `i -> 1 `i == -> . . _PORTBbits 0 4 `i -> 0 `i 166  ]
+"229
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 229:     {
+{
+"230
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 230:         antirrebote4=0;
+[e = _antirrebote4 -> -> 0 `i `uc ]
+"231
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 231:         izqJ2=1;
+[e = _izqJ2 -> -> 1 `i `uc ]
+"232
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 232:     }
+}
+[e $U 167  ]
+"233
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 233:     else
+[e :U 166 ]
+"234
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 234:     {
+{
+"235
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 235:         izqJ2=0;
+[e = _izqJ2 -> -> 0 `i `uc ]
+"236
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 236:     }
+}
+[e :U 167 ]
+"238
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 238:     if(antirrebote5==1 && PORTBbits.RB5==0)
+[e $ ! && == -> _antirrebote5 `i -> 1 `i == -> . . _PORTBbits 0 5 `i -> 0 `i 168  ]
+"239
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 239:     {
+{
+"240
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 240:         antirrebote5=0;
+[e = _antirrebote5 -> -> 0 `i `uc ]
+"241
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 241:         derJ2=1;
+[e = _derJ2 -> -> 1 `i `uc ]
+"242
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 242:     }
+}
+[e $U 169  ]
+"243
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 243:     else
+[e :U 168 ]
+"244
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 244:     {
+{
+"245
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 245:         derJ2=0;
+[e = _derJ2 -> -> 0 `i `uc ]
+"246
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 246:     }
+}
+[e :U 169 ]
+"248
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 248:     if(antirrebote6==1 && PORTBbits.RB6==0)
+[e $ ! && == -> _antirrebote6 `i -> 1 `i == -> . . _PORTBbits 0 6 `i -> 0 `i 170  ]
+"249
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 249:     {
+{
+"250
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 250:         antirrebote6=0;
+[e = _antirrebote6 -> -> 0 `i `uc ]
+"251
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 251:         upJ2=1;
+[e = _upJ2 -> -> 1 `i `uc ]
+"252
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 252:     }
+}
+[e $U 171  ]
+"253
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 253:     else
+[e :U 170 ]
+"254
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 254:     {
+{
+"255
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 255:         upJ2=0;
+[e = _upJ2 -> -> 0 `i `uc ]
+"256
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 256:     }
+}
+[e :U 171 ]
+"258
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 258:     if(antirrebote7==1 && PORTBbits.RB7==0)
+[e $ ! && == -> _antirrebote7 `i -> 1 `i == -> . . _PORTBbits 0 7 `i -> 0 `i 172  ]
+"259
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 259:     {
+{
+"260
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 260:         antirrebote7=0;
+[e = _antirrebote7 -> -> 0 `i `uc ]
+"261
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 261:         downJ2=1;
+[e = _downJ2 -> -> 1 `i `uc ]
+"262
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 262:     }
+}
+[e $U 173  ]
+"263
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 263:     else
+[e :U 172 ]
+"264
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 264:     {
+{
+"265
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 265:         downJ2=0;
+[e = _downJ2 -> -> 0 `i `uc ]
+"266
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 266:     }
+}
+[e :U 173 ]
+"267
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 267: }
+[e :UE 157 ]
+}
+"269
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 269: void mandar_datos(void)
+[v _mandar_datos `(v ~T0 @X0 1 ef ]
+"270
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 270: {
+{
+[e :U _mandar_datos ]
+[f ]
+"271
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 271:     switch(cuenta_uart)
+[e $U 176  ]
+"272
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 272:     {
+{
+"273
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 273:         case(1):
+[e :U 177 ]
+"274
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 274:             TXREG=(izqJ1+0x30);
+[e = _TXREG -> + -> _izqJ1 `i -> 48 `i `uc ]
+"275
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 275:             break;
+[e $U 175  ]
+"276
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 276:         case(2):
+[e :U 178 ]
+"277
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 277:             TXREG=44;
+[e = _TXREG -> -> 44 `i `uc ]
+"278
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 278:             break;
+[e $U 175  ]
+"279
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 279:         case(3):
+[e :U 179 ]
+"280
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 280:             TXREG=derJ1+0x30;
+[e = _TXREG -> + -> _derJ1 `i -> 48 `i `uc ]
+"281
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 281:             break;
+[e $U 175  ]
+"282
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 282:         case(4):
+[e :U 180 ]
+"283
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 283:             TXREG=44;
+[e = _TXREG -> -> 44 `i `uc ]
+"284
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 284:             break;
+[e $U 175  ]
+"285
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 285:         case(5):
+[e :U 181 ]
+"286
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 286:             TXREG=upJ1+0x30;
+[e = _TXREG -> + -> _upJ1 `i -> 48 `i `uc ]
+"287
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 287:             break;
+[e $U 175  ]
+"288
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 288:         case(6):
+[e :U 182 ]
+"289
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 289:             TXREG=44;
+[e = _TXREG -> -> 44 `i `uc ]
+"290
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 290:             break;
+[e $U 175  ]
+"291
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 291:         case(7):
+[e :U 183 ]
+"292
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 292:             TXREG=downJ2+0x30;
+[e = _TXREG -> + -> _downJ2 `i -> 48 `i `uc ]
+"293
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 293:             break;
+[e $U 175  ]
+"294
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 294:         case(8):
+[e :U 184 ]
+"295
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 295:             TXREG=izqJ2+0x30;
+[e = _TXREG -> + -> _izqJ2 `i -> 48 `i `uc ]
+"296
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 296:             break;
+[e $U 175  ]
+"297
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 297:         case(9):
+[e :U 185 ]
+"298
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 298:             TXREG=derJ2+0x30;
+[e = _TXREG -> + -> _derJ2 `i -> 48 `i `uc ]
+"299
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 299:             break;
+[e $U 175  ]
+"300
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 300:         case(10):
+[e :U 186 ]
+"301
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 301:             TXREG=upJ2+0x30;
+[e = _TXREG -> + -> _upJ2 `i -> 48 `i `uc ]
+"302
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 302:             break;
+[e $U 175  ]
+"303
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 303:         case(11):
+[e :U 187 ]
+"304
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 304:             TXREG=downJ2+0x30;
+[e = _TXREG -> + -> _downJ2 `i -> 48 `i `uc ]
+"305
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 305:             break;
+[e $U 175  ]
+"306
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 306:         case(12):
+[e :U 188 ]
+"307
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 307:             TXREG=10;
+[e = _TXREG -> -> 10 `i `uc ]
+"308
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 308:             break;
+[e $U 175  ]
+"309
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 309:         case(13):
+[e :U 189 ]
+"310
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 310:             TXREG=13;
+[e = _TXREG -> -> 13 `i `uc ]
+"311
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 311:             break;
+[e $U 175  ]
+"312
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 312:         case(25):
+[e :U 190 ]
+"313
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 313:             cuenta_uart=0;
+[e = _cuenta_uart -> -> 0 `i `uc ]
+"314
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 314:             break;
+[e $U 175  ]
+"315
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 315:     }
+}
+[e $U 175  ]
+[e :U 176 ]
+[e [\ -> _cuenta_uart `i , $ -> 1 `i 177
+ , $ -> 2 `i 178
+ , $ -> 3 `i 179
+ , $ -> 4 `i 180
+ , $ -> 5 `i 181
+ , $ -> 6 `i 182
+ , $ -> 7 `i 183
+ , $ -> 8 `i 184
+ , $ -> 9 `i 185
+ , $ -> 10 `i 186
+ , $ -> 11 `i 187
+ , $ -> 12 `i 188
+ , $ -> 13 `i 189
+ , $ -> 25 `i 190
+ 175 ]
+[e :U 175 ]
+"317
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c: 317: }
+[e :UE 174 ]
+}

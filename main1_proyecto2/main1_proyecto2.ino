@@ -103,7 +103,8 @@ void ISR2 (){
   SPI.setModule(0);         //SPI para SD
  
   SysCtlClockSet(SYSCTL_SYSDIV_2_5|SYSCTL_USE_PLL|SYSCTL_OSC_MAIN|SYSCTL_XTAL_16MHZ);
-  Serial.begin(9600);       //UART para menu
+  Serial.begin(9600);       //UART para menu1
+  Serial1.begin(9600);      //UART para datos desde pic
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
   //-------INICIALIZACION DE TFT
   LCD_Init();
@@ -145,6 +146,9 @@ void loop() {
       break;
     }
   }
+  char inChar = (char)Serial1.read();
+  Serial.println(inChar);
+  delay(200);
   /*
   //-------antirrebote1
   b1 = digitalRead(31);         //se toma la lectura del boton 1
