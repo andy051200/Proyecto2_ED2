@@ -127,7 +127,7 @@ void ISR2 (){
   String text1 = "Presiona un boton";                  //texto inicial a desplegar
   LCD_Print(text1, 10, 110, 2, 0x0000, 0xffff);
   delay(1000);
-  
+  LCD_Clear(0x00);
 }
 /*-----------------------------------------------------------------------------
  -------------------------- M A I N   L O O P ---------------------------------
@@ -135,7 +135,7 @@ void ISR2 (){
 void loop() {
   while(iniciado==1){
     //juego();
-    LCD_Clear(0x00);
+
     
     LCD_Bitmap(wenas,175,32,24,tron);
     V_line(wenas -1, 185, 2, 0x333FFF  );
