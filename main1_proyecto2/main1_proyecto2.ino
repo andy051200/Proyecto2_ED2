@@ -96,6 +96,7 @@ void ISR2 (){
   //-------ENTRADAS Y SALIDA
   pinMode(31, INPUT_PULLUP);    //boton para imagen 1
   pinMode(17, INPUT_PULLUP);    //boton para imagen 2
+  pinMode(PF_1, OUTPUT); 
   pinMode(PA_3, OUTPUT);    //se define salida del CS para comunicacion con SD
   attachInterrupt(digitalPinToInterrupt(17), ISR1, FALLING);
   attachInterrupt(digitalPinToInterrupt(31), ISR2, FALLING);
@@ -173,7 +174,11 @@ void loop() {
   }
   */
   Serial.print(wenas);
-
+  digitalWrite(PF_1, HIGH);
+  delay(1000);
+  digitalWrite(PF_1, LOW);
+  delay(1000);
+  
 
 
 
