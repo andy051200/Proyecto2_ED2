@@ -45,9 +45,10 @@ unsigned char antirrebote0,antirrebote1;  //para botones
 unsigned char antirrebote2,antirrebote3;  //para botones
 unsigned char antirrebote4,antirrebote5;  //para botones
 unsigned char antirrebote6,antirrebote7;  //para botones
-unsigned char izqJ1, derJ1, upJ1, downJ1;   //variables de jugador 1
-unsigned char izqJ2, derJ2, upJ2, downJ2;   //variables de jugador 2
+unsigned char horJ1, verJ1;   //variables de jugador 1
+unsigned char horJ2, verJ2;   //variables de jugador 2
 unsigned char cuenta_uart;
+int wenas;
 /*-----------------------------------------------------------------------------
  ------------------------ PROTOTIPOS DE FUNCIONES ------------------------------
  -----------------------------------------------------------------------------*/
@@ -88,7 +89,7 @@ void __interrupt() isr(void) //funcion de interrupciones
             case(0b01111111):
                 antirrebote7=1;
                 break;
-            default:
+            /*default:
                 antirrebote0=0;
                 antirrebote1=0;
                 antirrebote2=0;
@@ -97,7 +98,7 @@ void __interrupt() isr(void) //funcion de interrupciones
                 antirrebote5=0;
                 antirrebote6=0;
                 antirrebote7=0;
-                break;
+                break;*/
         }
         INTCONbits.RBIF=0;
     }
@@ -105,7 +106,7 @@ void __interrupt() isr(void) //funcion de interrupciones
     if (PIR1bits.TXIF)
     {
         cuenta_uart++;      //se suma variable guia
-        
+        mandar_datos();     //invoco funcion para mandar uart
         PIR1bits.TXIF=0;    //apago interrupcion
     }
 }
@@ -117,8 +118,7 @@ void main(void) {
     while(1)
     {
         botonazos();    //se llama funcion de botonazos
-        mandar_datos();     //invoco funcion para mandar uart
-        
+        //mandar_datos();     //invoco funcion para mandar uart
     }
     return;
 }
@@ -183,88 +183,55 @@ void setup(void)
 void botonazos(void)
 {
     //JUGADOR 1
-    //-------antirrebote 0, izqJ1
+    //-------antirrebote 0, izquierda j1
     if(antirrebote0==1 && PORTBbits.RB0==0) 
     {
         antirrebote0=0;
-        izqJ1=1;
-        PORTD=0b00000001;
-        
+        horJ1=0;
     }
-    else
-    {
-        izqJ1=0;
-    }
-    //-------antirrebote 1, derJ1
+    //-------antirrebote 1, derecha j1
     if(antirrebote1==1 && PORTBbits.RB1==0)
     {
         antirrebote1=0;
-        derJ1=1;
+        horJ1=1;
     }
-    else
-    {
-        derJ1=0;
-    }
-    //-------antirrebote 2, upJ1
+    
+    //-------antirrebote 2, arriba j1
     if(antirrebote2==1 && PORTBbits.RB2==0)
     {
         antirrebote2=0;
-        upJ1=1;
+        verJ1=0;
     }
-    else
-    {
-        upJ1=0;
-    }
-    //-------antirrebote 3, downJ1
+    //-------antirrebote 3, abajo j1
     if(antirrebote3==1 && PORTBbits.RB3==0)
     {
         antirrebote3=0;
-        downJ1=1;
-    }
-    else
-    {
-        downJ1=0;
+        verJ1=1;
     }
     //JUGADOR 2
-    //-------antirrebote 4, izqJ2
+    //-------antirrebote 4, izquierda j2
     if(antirrebote4==1 && PORTBbits.RB4==0)
     {
         antirrebote4=0;
-        izqJ2=1;
+        horJ2=0;
     }
-    else
-    {
-        izqJ2=0;
-    }
-    //-------antirrebote 5, derJ2
+    //-------antirrebote 5, derecha j2
     if(antirrebote5==1 && PORTBbits.RB5==0)
     {
         antirrebote5=0;
-        derJ2=1;
+        horJ2=1;
     }
-    else
-    {
-        derJ2=0;
-    }
-    //-------antirrebote 6, upJ2
+    //-------antirrebote 6, arriba j2
     if(antirrebote6==1 && PORTBbits.RB6==0)
     {
         antirrebote6=0;
-        upJ2=1;
+        verJ2=0;
     }
-    else
-    {
-        upJ2=0;
-    }
-    //-------antirrebote 7, downJ2
+    //-------antirrebote 7, abajo j2
     if(antirrebote7==1 && PORTBbits.RB7==0)
     {
         antirrebote7=0;
-        downJ2=1;
-    }
-    else
-    {
-        downJ2=0;
+        verJ2=1;
     }
 }
 //-------FUNCION PARA MANDAR LOS DATOS UART A LA TIVA
@@ -272,46 +239,44 @@ void mandar_datos(void)
 {
     switch(cuenta_uart)
     {
+        case(0):
+            //TXREG=0x02;
+            break;
         case(1):
-            TXREG=(5+0x30);
+            TXREG=(verJ1+48);
+            //TXREG='w';
             break;
         case(2):
             TXREG=44;
+            //TXREG='e';
             break;
         case(3):
-            TXREG=derJ1+0x30;
+            TXREG=horJ1+48;
+            //TXREG='n';
             break;
         case(4):
             TXREG=44;
+            //TXREG='a';
             break;
         case(5):
-            TXREG=upJ1+0x30;
+            TXREG=horJ2+48;
+            //TXREG='s';
             break;
         case(6):
             TXREG=44;
+            //TXREG=0x03;
             break;
         case(7):
-            TXREG=downJ2+0x30;
+            TXREG=verJ2+48;
             break;
+        
         case(8):
-            TXREG=izqJ2+0x30;
+            TXREG=10;               //cambio de linea
             break;
         case(9):
-            TXREG=derJ2+0x30;
+            TXREG=13;               //retorno de carro
             break;
-        case(10):
-            TXREG=upJ2+0x30;
-            break;
-        case(11):
-            TXREG=downJ2+0x30;
-            break;
-        case(12):
-            TXREG=10;               //separador de coma
-            break;
-        case(13):
-            TXREG=13;               //separador de coma
-            break;
-        case(25):
+        case(15):
             cuenta_uart=0;          //un tipo de delay para reiniciar cuenta
             break;
     }

@@ -2670,8 +2670,10 @@ unsigned char antirrebote2,antirrebote3;
 unsigned char antirrebote4,antirrebote5;
 unsigned char antirrebote6,antirrebote7;
 unsigned char izqJ1, derJ1, upJ1, downJ1;
-unsigned char izqJ2, derJ2, upJ2, downJ2;
+unsigned char horJ1, verJ1;
+unsigned char horJ2, verJ2;
 unsigned char cuenta_uart;
+int wenas;
 
 
 
@@ -2712,16 +2714,7 @@ void __attribute__((picinterrupt(("")))) isr(void)
             case(0b01111111):
                 antirrebote7=1;
                 break;
-            default:
-                antirrebote0=0;
-                antirrebote1=0;
-                antirrebote2=0;
-                antirrebote3=0;
-                antirrebote4=0;
-                antirrebote5=0;
-                antirrebote6=0;
-                antirrebote7=0;
-                break;
+# 102 "C:/Users/Andy Bonilla/Documents/GitHub/ED2/Proyecto2_ED2/main_pic.c"
         }
         INTCONbits.RBIF=0;
     }
@@ -2729,7 +2722,7 @@ void __attribute__((picinterrupt(("")))) isr(void)
     if (PIR1bits.TXIF)
     {
         cuenta_uart++;
-
+        mandar_datos();
         PIR1bits.TXIF=0;
     }
 }
@@ -2741,7 +2734,6 @@ void main(void) {
     while(1)
     {
         botonazos();
-        mandar_datos();
 
     }
     return;
@@ -2811,84 +2803,51 @@ void botonazos(void)
     if(antirrebote0==1 && PORTBbits.RB0==0)
     {
         antirrebote0=0;
-        izqJ1=1;
-        PORTD=0b00000001;
-
-    }
-    else
-    {
-        izqJ1=0;
+        horJ1=0;
     }
 
     if(antirrebote1==1 && PORTBbits.RB1==0)
     {
         antirrebote1=0;
-        derJ1=1;
+        horJ1=1;
     }
-    else
-    {
-        derJ1=0;
-    }
+
 
     if(antirrebote2==1 && PORTBbits.RB2==0)
     {
         antirrebote2=0;
-        upJ1=1;
-    }
-    else
-    {
-        upJ1=0;
+        verJ1=0;
     }
 
     if(antirrebote3==1 && PORTBbits.RB3==0)
     {
         antirrebote3=0;
-        downJ1=1;
-    }
-    else
-    {
-        downJ1=0;
+        verJ1=1;
     }
 
 
     if(antirrebote4==1 && PORTBbits.RB4==0)
     {
         antirrebote4=0;
-        izqJ2=1;
-    }
-    else
-    {
-        izqJ2=0;
+        horJ2=0;
     }
 
     if(antirrebote5==1 && PORTBbits.RB5==0)
     {
         antirrebote5=0;
-        derJ2=1;
-    }
-    else
-    {
-        derJ2=0;
+        horJ2=1;
     }
 
     if(antirrebote6==1 && PORTBbits.RB6==0)
     {
         antirrebote6=0;
-        upJ2=1;
-    }
-    else
-    {
-        upJ2=0;
+        verJ2=0;
     }
 
     if(antirrebote7==1 && PORTBbits.RB7==0)
     {
         antirrebote7=0;
-        downJ2=1;
-    }
-    else
-    {
-        downJ2=0;
+        verJ2=1;
     }
 }
 
@@ -2896,46 +2855,44 @@ void mandar_datos(void)
 {
     switch(cuenta_uart)
     {
+        case(0):
+
+            break;
         case(1):
-            TXREG=(5+0x30);
+            TXREG=(verJ1+48);
+
             break;
         case(2):
             TXREG=44;
+
             break;
         case(3):
-            TXREG=derJ1+0x30;
+            TXREG=horJ1+48;
+
             break;
         case(4):
             TXREG=44;
+
             break;
         case(5):
-            TXREG=upJ1+0x30;
+            TXREG=horJ2+48;
+
             break;
         case(6):
             TXREG=44;
+
             break;
         case(7):
-            TXREG=downJ2+0x30;
+            TXREG=verJ2+48;
             break;
+
         case(8):
-            TXREG=izqJ2+0x30;
-            break;
-        case(9):
-            TXREG=derJ2+0x30;
-            break;
-        case(10):
-            TXREG=upJ2+0x30;
-            break;
-        case(11):
-            TXREG=downJ2+0x30;
-            break;
-        case(12):
             TXREG=10;
             break;
-        case(13):
+        case(9):
             TXREG=13;
             break;
-        case(25):
+        case(15):
             cuenta_uart=0;
             break;
     }

@@ -25,7 +25,7 @@
 #include "driverlib/rom.h"
 #include "driverlib/sysctl.h"
 #include "driverlib/timer.h"
-
+#include "pitches.h"        //libreria de 
 
 #include "bitmaps.h"
 #include "font.h"
@@ -44,13 +44,22 @@
 #define LCD_RD PE_1
 //-------VARIABLES DE PROGRAMA
 int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
-
+int melody[]={NOTE_G2, NOTE_C2, NOTE_A2, NOTE_G2, NOTE_G2, 0, NOTE_C2, NOTE_E3}; //notas de la cancioncita
+int noteDurations[]={4, 8, 7, 5, 4, 3, 4, 4};                                    //duracion de cada nota
 extern uint8_t fondo[];
 extern uint8_t arcade[];
 bool antirrebote1, antirrebote2;    //variables para antirrebote
 bool b1 =1;   //variable booleanaa para J1
 bool b2 =1;   //variable booleana para J2
-int wenas;
+int n = 0;
+int nn;
+int y = 175;
+int x = 50;
+int w;
+int z;
+int E = 5;
+int l = 0;
+int h = 0;
 File myFile;
 bool iniciado=0;
 int buttonState = 0;         // current state of the button
@@ -77,17 +86,11 @@ int ascii2hex(int a);                       //funcion de mapeo de texto para ima
 void mapeo_SD(char doc[]);                  //despliegue de imagen mapeada
 //--
 void inicio(void);
-void juego(void);
+void musica(void);
 /*-----------------------------------------------------------------------------
  --------------------- I N T E R R U P C I O N E S ----------------------------
  -----------------------------------------------------------------------------*/
-void ISR1 (){
-  wenas++;
-}
-void ISR2 (){
-  iniciado=!iniciado;
-}
-
+//de momento no hay interrupciones
 
 /*-----------------------------------------------------------------------------
  ------------------------------ S E T   U P -----------------------------------
@@ -96,20 +99,20 @@ void ISR2 (){
   //-------ENTRADAS Y SALIDA
   pinMode(31, INPUT_PULLUP);    //boton para imagen 1
   pinMode(17, INPUT_PULLUP);    //boton para imagen 2
-  pinMode(PF_1, OUTPUT); 
-  pinMode(PA_3, OUTPUT);    //se define salida del CS para comunicacion con SD
-  attachInterrupt(digitalPinToInterrupt(17), ISR1, FALLING);
-  attachInterrupt(digitalPinToInterrupt(31), ISR2, FALLING);
+  pinMode(9, INPUT_PULLUP);     //boton para imagen 1
+  pinMode(10, INPUT_PULLUP);    //boton para imagen 2
+  pinMode(PA_3, OUTPUT);        //se define salida del CS para comunicacion con SD
+  pinMode(PF_2, OUTPUT);        //salida para el buzzer 
   //-------INICIALIZACION DE PROTOCOLOS DE COMUNICACION
   SPI.setModule(0);         //SPI para SD
- 
+  
   SysCtlClockSet(SYSCTL_SYSDIV_2_5|SYSCTL_USE_PLL|SYSCTL_OSC_MAIN|SYSCTL_XTAL_16MHZ);
-  Serial.begin(9600);       //UART para menu1
-  Serial1.begin(9600);      //UART para datos desde pic
+  Serial.begin(9600);       //UART para menu
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
   //-------INICIALIZACION DE TFT
   LCD_Init();
   LCD_Clear(0x00);
+
     
   //-------MENSAJES DE INICIALIZACION DE COMUNICACION CON SD
   Serial.println("Inicializando tarjeta SD...");
@@ -124,69 +127,304 @@ void ISR2 (){
   printDirectory(myFile, 0);                    //se imprime el directorio de la SD
 
   //-------MENSAJES DE MENU AL INICIAR PROGRAMA
-  mapeo_SD("inicio.txt");
+  mapeo_SD("inicio.txt"); 
   //LCD_Print(String text, int x, int y, int fontSize, int color, int background)
   String text1 = "Presiona un boton";                  //texto inicial a desplegar
   LCD_Print(text1, 10, 110, 2, 0x0000, 0xffff);
   delay(1000);
-  LCD_Clear(0x00);
 }
 /*-----------------------------------------------------------------------------
  -------------------------- M A I N   L O O P ---------------------------------
  -----------------------------------------------------------------------------*/
 void loop() {
-  while(iniciado==1){
-    //juego();
-
-    
-    LCD_Bitmap(wenas,175,32,24,tron);
-    V_line(wenas -1, 185, 2, 0x333FFF  );
-    LCD_Bitmap(wenas,145,32,24,tron2);
-    V_line( wenas -1, 155, 2, 0xFF9633  );
-    if (iniciado ==0){
-      break;
-    }
-  }
-  char inChar = (char)Serial1.read();
-  Serial.println(inChar);
-  delay(200);
-  /*
-  //-------antirrebote1
+  //antirrebote1
   b1 = digitalRead(31);         //se toma la lectura del boton 1
+  //-------antirrebote1
   if (b1==0 && antirrebote1==0){
     antirrebote1=1;
   }
   else{
     antirrebote1=0;
   } 
-  
+  //-------accion luego del antirrebote1
   if (antirrebote1==1 && b1==0){
     antirrebote1=0;
     iniciado=1;
-    Serial.println(iniciado);
+    LCD_Bitmap(0, 0, 320, 240, arcade);
+    String text1 = "El primero que choque";                  //texto para las instrucciones del juego
+    String text2 = "el camino del otro,";                    //divido en lineas de juego
+    String text3 = "sera el ganador :D"; 
+    String text4 = "SUERTE :o";
+    LCD_Print(text1, 70, 90, 1, 0xffff, 0x0000);
+    LCD_Print(text2, 70, 110, 1, 0xffff, 0x0000);
+    LCD_Print(text3, 70, 130, 1, 0xffff, 0x0000);
+    LCD_Print(text4, 70, 160, 2, 0xffff, 0x0000);
+    delay(1000);
+    inicio();                                                 //funcion con semafo para inicio de juego
+    delay(1000);
+    //LCD_Bitmap(0, 0, 320, 240, arcade);                       //se despliega el fondo del arcade donde se jugara  
+    LCD_Clear(0x00);
   }
-  else{
-    iniciado=0;
+  musica();
+    while(iniciado){
+      int H[3200];
+      int V[2400];
+      if (E==5){
+        for(x; x <320; x++){
+          delay(10);
+    
+          //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
+          //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
+          //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
+          LCD_Bitmap(x,y,32,24,tron);
+          V_line( x -1, y+12, 2, 0x421b  );
+          H[n] = x-1;
+          V[n] = y+12;
+          n++;
+          if(x+32>320){
+            while(true){
+                
+            }
+          }
+          if(digitalRead(PUSH1)==LOW || digitalRead(PA_7)==LOW || digitalRead(PA_6)==LOW || digitalRead(PUSH2)==LOW){
+            E=4;
+            break;
+          }
+        }
+      }
+      w=x;
+      z=y;
+      if ((digitalRead(PUSH1)==HIGH || digitalRead(PA_7)==HIGH || digitalRead(PA_6)==HIGH) && digitalRead(PUSH2)==LOW){
+        for(x; x <320; x++){
+          delay(10);
+    
+          //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
+          //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
+          //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
+          LCD_Bitmap(x,y,32,24,tron);
+          if (x-w>16){
+            V_line( x -1, y+12, 2, 0x421b  );
+            H[n] = x-1;
+            V[n] = y+12;
+            n++;
+            if (E==1){
+              l=0;
+              for(l; l<12; l++){
+              H_line( w+16, z+l, 2, 0x421b);
+              H[n] = w+16;
+              V[n] = z+l;
+              n++;
+              }
+              E=0;
+            }
+            else if (E==2){
+              l=0;
+              for(l; l<12; l++){
+              H_line( w+16, z+l+12, 2, 0x421b);
+              H[n] = w+16;
+              V[n] = z+l+12;
+              n++;
+              }
+              E=0;
+            }
+            nn=0;
+            for(nn; nn<n; nn++){
+              if (((H[nn]==x+32)&&(V[nn]<y+24)&&(V[nn]>y))||(x+32>320)){
+                while(true){
+                  
+                }
+              }
+          }
+          if ((digitalRead(PUSH1)==LOW || digitalRead(PA_7)==LOW || digitalRead(PA_6)==LOW) && digitalRead(PUSH2)==HIGH){
+            E=4;
+            break;
+          }
+        } 
+      }
+      }
+      else if (digitalRead(PUSH1)==LOW && (digitalRead(PUSH2)==HIGH || digitalRead(PA_7)==HIGH || digitalRead(PA_6)==HIGH)){
+        for(x; x <320-32; x--){
+          delay(10);
+    
+          //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
+          //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
+          //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
+          LCD_Bitmap(x,y,32,24,tron);
+          if (w-x>16){
+            V_line( x +33, y+12, 2, 0x421b  );
+            H[n] = x+33;
+            V[n] = y+12;
+            n++;
+            if (E==1){
+              l=0;
+              for(l; l<12; l++){
+              H_line( w+16, z+l, 2, 0x421b);
+              H[n] = w+16;
+              V[n] = z+l;
+              n++;
+              }
+              E=0;
+            }
+            else if (E==2){
+              l=0;
+              for(l; l<12; l++){
+              H_line( w+16, z+l+12, 2, 0x421b);
+              H[n] = w+16;
+              V[n] = z+l+12;
+              n++;
+              }
+              E=0;
+            }
+          }
+          nn=0;
+          for(nn; nn<n; nn++){
+              if (((H[nn]==(x))&&(V[nn]<y+24)&&(V[nn]>y))||(x<0)){
+                while(true){
+                  
+                }
+              }
+          }
+          if ((digitalRead(PUSH2)==LOW || digitalRead(PA_7)==LOW || digitalRead(PA_6)==LOW) && digitalRead(PUSH1)==HIGH){
+            E=3;
+            break;
+          }
+        } 
+      }
+      else if ((digitalRead(PUSH2)==HIGH || digitalRead(PUSH1)==HIGH || digitalRead(PA_7)==HIGH) && digitalRead(PA_6)==LOW){
+        for(y; y <240; y++){
+          delay(10);
+    
+          //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
+          //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
+          //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
+          LCD_Bitmap(x,y,32,24,tron);
+          if (y-z>12){
+            H_line( x+16, y-1, 2, 0x421b  );
+            H[n] = x+16;
+            V[n] = y-1;
+            n++;
+            if (E==3){
+              h=0;
+              for(h; h<17; h++){
+              V_line( w+h+16, z+12, 2, 0x421b);
+              H[n] = w+h+16;
+              V[n] = z+12;
+              n++;
+              }
+              E=0;
+            }
+            else if (E==4){
+              h=0;
+              for(h; h<16; h++){
+              V_line( w+h, z+12, 2, 0x421b);
+              H[n] = w+h;
+              V[n] = z+12;
+              n++;
+              }
+              E=0;
+            }
+          }
+          nn = 0;
+          for(nn; nn<n; nn++){
+            if(((V[nn]<y+24)&&(V[nn]>y)&&(H[nn]>x)&&(H[nn]<x+32))||(y+24>240)){
+              while(true){
+                
+              }
+            }
+          }
+          if ((digitalRead(PUSH2)==LOW || digitalRead(PA_7)==LOW || digitalRead(PUSH1)==LOW) && digitalRead(PA_6)==HIGH){
+            E=1;
+            break;
+          }
+        } 
+      }
+      else if (digitalRead(PA_7)==LOW && (digitalRead(PUSH2)==HIGH || digitalRead(PUSH1)==HIGH || digitalRead(PA_6)==HIGH)){
+        for(y; y <240; y--){
+          delay(10);
+    
+          //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
+          //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
+          //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
+          LCD_Bitmap(x,y,32,24,tron);
+          if (z-y>12){
+            H_line( x+16, y+25, 2, 0x421b  );
+            H[n]=x+16;
+            V[n]=y+25;
+            n++;
+            if (E==3){
+              h=0;
+              for(h; h<17; h++){
+              V_line( w+h+16, z+12, 2, 0x421b);
+              H[n]=w+h+16;
+              V[n]=z+12;
+              n++;
+              }
+              E=0;
+            }
+            else if (E==4){
+              h=0;
+              for(h; h<16; h++){
+              V_line( w+h, z+12, 2, 0x421b);
+              H[n]=w+h;
+              V[n]=z+12;
+              n++;
+              }
+              E=0;
+            }
+          }
+          nn=0;
+          for(nn; nn<n; nn++){
+            if(((V[nn]>y)&&(V[nn]<y+24)&&(H[nn]>x)&&(H[nn]<x+32))||(y<0)){
+              while(true){
+                
+              }
+            }
+          }
+          if ((digitalRead(PUSH2)==LOW || digitalRead(PUSH1)==LOW || digitalRead(PA_6)==LOW) && digitalRead(PA_7)==HIGH){
+            E=2;
+            break;
+          }
+        } 
+      }
+      /*else if (digitalRead(PUSH1)==LOW){
+        for(x; x <320-32; x=x+5){
+          Serial.println("CAMINA RÁPIDO");
+          delay(10);
+          int mario_index = (x/11)%8;
+    
+          //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
+          int bowser_index = (x/11)%4;
+          //-------Función para dibujar una imagen a partir de un arreglo de colores (Bitmap) Formato (Color 16bit R 5bits G 6bits B 5bits)
+          //void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[])
+          LCD_Bitmap(x,175,32,24,tron);
+          V_line( x -1, 185, 2, 0x421b  );
+          V_line( x -2, 185, 2, 0x421b  );
+          V_line( x -3, 185, 2, 0x421b  );
+          V_line( x -4, 185, 2, 0x421b  );
+          V_line( x -5, 185, 2, 0x421b  );
+          if (digitalRead(31)==HIGH){
+            break;
+          }
+        }
+      }*/
+    }
   }
-  //-----------
-  if (iniciado>0){
-    juego();
+  //-------control de cual imagen se pone
+  //antirrebote1
+  /*buttonState = digitalRead(17);         //se toma la lectura del boton 2
+  if (buttonState != lastButtonState) {
+    if (buttonState == 1) {
+      wenas++;
+      Serial.println(wenas);
+    } 
+    else {
+      Serial.println("wenas");
+    }
   }
-  */
-  Serial.print(wenas);
-  digitalWrite(PF_1, HIGH);
-  delay(1000);
-  digitalWrite(PF_1, LOW);
-  delay(1000);
-  
-
-
-
-
-  
+  delay(1);
+  lastButtonState = buttonState;
   //-------antirrebote2
-  /*b2 = digitalRead(17);         //se toma la lectura del boton 1
-  if (b2==0 && antirrebote2==0){
+  /*if (b2==0 && antirrebote2==0){
     antirrebote2=1;
   }
   else{
@@ -194,27 +432,38 @@ void loop() {
   } 
   //-------accion luego del antirrebote1
   if (antirrebote2==1 && b2==0){
-    antirrebote2=0;
     wenas++;
     Serial.println(wenas);
   }*/
-  
+
 
   /*if (wenas==15){
     LCD_Clear(0x00);
     mapeo_SD("yourock.txt");                       //imagen alma
     String text1 = "ganaste perro";         //pequeña descripcion
     LCD_Print(text1, 60, 185, 2, 0x0000, 0xffff);  //caracteristicas de texto
-  }*/
+  }
   
   
-}
+}*/
 
 
 
 /*-----------------------------------------------------------------------------
  ------------------------- F U N C I O N E S ----------------------------------
  -----------------------------------------------------------------------------*/
+void musica(void){
+  for (int thisNote=0; thisNote <8; thisNote++){
+    int noteDuration = 1000 / noteDurations [thisNote]; //se define la duracion aproximada de cada nota
+    tone(PF_2, melody [thisNote], noteDuration);
+    int pauseBetweenNotes = noteDuration * 1.30;        //se alarga ligeramente el tiempo de duracion
+    delay(pauseBetweenNotes);                           //se para por un tiempo
+    noTone(8);
+    delay(10);
+  }
+}
+
+
 //-------FUNCION PARA CUENTA REGRESIVA
 void inicio(void){
   LCD_Clear(0x00);
@@ -232,27 +481,6 @@ void inicio(void){
   LCD_Clear(0x00);
 }
 
-void juego(void){
-  LCD_Bitmap(0, 0, 320, 240, arcade);
-  String text1 = "El primero que choque";                  //texto para las instrucciones del juego
-  String text2 = "el camino del otro,";                    //divido en lineas de juego
-  String text3 = "sera el ganador :D"; 
-  String text4 = "SUERTE :o";
-  LCD_Print(text1, 70, 90, 1, 0xffff, 0x0000);
-  LCD_Print(text2, 70, 110, 1, 0xffff, 0x0000);
-  LCD_Print(text3, 70, 130, 1, 0xffff, 0x0000);
-  LCD_Print(text4, 70, 160, 2, 0xffff, 0x0000);
-  delay(1000);
-  inicio();                                                 //funcion con semafo para inicio de juego
-  delay(1000);
-  //LCD_Bitmap(0, 0, 320, 240, arcade);                       //se despliega el fondo del arcade donde se jugara  
-  LCD_Clear(0x00);
-    
-  LCD_Bitmap(wenas,175,32,24,tron);
-  V_line(wenas -1, 185, 2, 0x333FFF  );
-  LCD_Bitmap(wenas,145,32,24,tron2);
-  V_line( wenas -1, 155, 2, 0xFF9633  );
-}
 
  
 //-------Función para inicializar LCD
