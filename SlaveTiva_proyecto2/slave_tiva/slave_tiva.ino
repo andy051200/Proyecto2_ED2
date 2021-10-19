@@ -25,6 +25,7 @@ int noteDurations[]={4, 8, 8, 4, 4, 4, 4, 4};
 /*-----------------------------------------------------------------------------
  ------------------------ I N T E R R U P C I O N E S ------------------------
  -----------------------------------------------------------------------------*/
+//JUGADOR 1
 //-------interrupcion para izquierda jugador 1
 void ISR_izj1(){
   antirrebote1_j1=1;
@@ -42,6 +43,7 @@ void ISR_downj1(){
 void ISR_upj1(){
   antirrebote4_j1=1;
 }
+//JUGADOR 2
 //-------interrupcion para izquierda jugador 2
 void ISR_izj2(){
   antirrebote1_j2=1;
@@ -106,6 +108,7 @@ void setup() {
  -------------------------- M A I N   L O O P ---------------------------------
  -----------------------------------------------------------------------------*/
 void loop() {
+  //JUGADOR 1
   //-------antirrebote para izquierda j1
   if (digitalRead(PD_0)==0 && antirrebote1_j1==1){
     antirrebote1_j1=0;
@@ -132,10 +135,10 @@ void loop() {
   if (digitalRead(PD_3)==0 && antirrebote4_j1==1){
     antirrebote4_j1=0;
     Serial.println("Boton para la abajo J1");
-    digitalWrite(PC_4, LOW);                        //defensiva
-    digitalWrite(PC_5, LOW);                        //salida mera mera
+    digitalWrite(PC_4, HIGH);                        //defensiva
+    digitalWrite(PC_5, HIGH);                        //salida mera mera
   }
-  
+  //JUGADOR 2
   //-------antirrebote para izquierda j2
   if (digitalRead(PA_2)==0 && antirrebote1_j2==1){
     antirrebote1_j2=0;
@@ -161,10 +164,10 @@ void loop() {
   if (digitalRead(PA_5)==0 && antirrebote4_j2==1){
     antirrebote4_j2=0;
     Serial.println("Boton para la abajo J2");
-    digitalWrite(PC_6, LOW);                      //defensiva
-    digitalWrite(PC_7, LOW);                      //salida mera mera
+    digitalWrite(PC_6, HIGH);                      //defensiva
+    digitalWrite(PC_7, HIGH);                      //salida mera mera
   }
-  //musica();
+  musica();
 }
 
 /*-----------------------------------------------------------------------------
