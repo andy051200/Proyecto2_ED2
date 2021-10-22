@@ -120,10 +120,15 @@ void loop() {
       Serial3.write(C);
       Serial3.write(CC);
       Serial3.write(10);
+     
     }
+    
   }
+  //else if(x==0){
+    //musica();
+ // }
   serial();
-  musica();
+  //musica();
   
 }
 
