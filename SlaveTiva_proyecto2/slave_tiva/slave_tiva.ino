@@ -1,3 +1,17 @@
+//***************************************************************************************************************************************
+/* Librería para el uso de la pantalla ILI9341 en modo 8 bits
+ * Basado en el código de martinayotte - https://www.stm32duino.com/viewtopic.php?t=637
+ * Adaptación, migración y creación de nuevas funciones: Pablo Mazariegos y José Morales
+ * Con ayuda de: José Guerra
+ * Modificaciones y adaptación: Diego Morales
+ * IE3027: Electrónica Digital 2 - 2021
+ * adaptacion para uso de proyecto 2 de Andy Bonilla y Pablo Herrarte
+ */
+//***************************************************************************************************************************************
+
+/*-----------------------------------------------------------------------------
+ ----------------------------L I B R E R I A S---------------------------------
+ -----------------------------------------------------------------------------*/
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35
@@ -90,7 +104,9 @@
 
 
 
-
+/*-----------------------------------------------------------------------------
+ ------------ P R O T O T I P O S   D E   F U N C I O N E S -------------------
+ -----------------------------------------------------------------------------*/
 void beep(int note, int duration);
 void musica(void);
 void serial(void);
@@ -99,6 +115,10 @@ unsigned int SS=0;
 unsigned int C=54;
 unsigned int CC=49;
 unsigned int x=0;
+/*-----------------------------------------------------------------------------
+ ------------------------------ S E T   U P -----------------------------------
+ -----------------------------------------------------------------------------*/
+
 void setup() {
   Serial.begin(9600);
   Serial3.begin(9600);
@@ -131,8 +151,11 @@ void loop() {
   //musica();
   
 }
+/*-----------------------------------------------------------------------------
+ ------------------------------ F U N C I O N E S -----------------------------------
+ -----------------------------------------------------------------------------*/
 
-
+//-------FUNCION PARA FUNCIONAMIENTO DE COMUNICACION SERIAL 
 void serial(void){
   if ((digitalRead(PA_5)==HIGH && digitalRead(PA_3)==HIGH && digitalRead(PA_2)==HIGH && digitalRead(PA_4)==LOW&&(S!=2))){
     S=2;
@@ -192,16 +215,14 @@ void serial(void){
   }
 }
 
-//*********************************************
-// Funcion para tocar notas musicales
-//*********************************************
+//-------FUNCION PARAN NOTAS MUSICALES
 void beep(int note, int duration){
   tone(PF_2, note, duration / 2);
   delay(duration / 2);
   noTone(PF_2);
   delay(duration / 2 + 20);
 }
-
+//-------FUNCION QUE REPRODUCE LAS CANCIONES
 void musica(void){
   beep(NOTE_G2,200);
   beep(NOTE_C2,400);
