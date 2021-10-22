@@ -2450,57 +2450,6 @@ void mapeo_SD(char doc[]) {
   }
 }
 
-/*void musica(void){
-  for (int thisNote=0; thisNote <8; thisNote++){
-    int noteDuration = f00b0 / noteDurations [thisNote]; //se define la duracion aproximada de cada nota
-    tone(PF_2, melody [thisNote], noteDuration);
-    int pauseBetweenNotes = noteDuration * 1.30;        //se alarga ligeramente el tiempo de duracion
-    delay(pauseBetweenNotes);                           //se para por un tiempo
-    noTone(8);
-    delay(10);
-  }
-}
-void defensiva(void){
-  if ((digitalRead(PUSH1)==HIGH || digitalRead(PA_7)==HIGH || digitalRead(PA_6)==HIGH) && digitalRead(PUSH2)==LOW){
-    m1=2;
-  }
-  else if (digitalRead(PUSH1)==LOW && (digitalRead(PUSH2)==HIGH || digitalRead(PA_7)==HIGH || digitalRead(PA_6)==HIGH)){
-    m1=1;
-  }
-  else if (digitalRead(PA_7)==LOW && (digitalRead(PUSH2)==HIGH || digitalRead(PUSH1)==HIGH || digitalRead(PA_6)==HIGH)){
-    m1=3;
-  }
-  else if ((digitalRead(PUSH2)==HIGH || digitalRead(PUSH1)==HIGH || digitalRead(PA_7)==HIGH) && digitalRead(PA_6)==LOW){
-    m1=4;
-  }
-  if ((digitalRead(PE_2)==HIGH || digitalRead(PE_3)==HIGH || digitalRead(PF_1)==HIGH) && digitalRead(PE_5)==LOW){
-    m2=1;
-  }
-  else if ((digitalRead(PE_2)==HIGH || digitalRead(PE_3)==HIGH || digitalRead(PE_5)==HIGH) && digitalRead(PF_1)==LOW){
-    m2=2;
-  }
-  else if ((digitalRead(PE_5)==HIGH || digitalRead(PE_3)==HIGH || digitalRead(PF_1)==HIGH) && digitalRead(PE_2)==LOW){
-    m2=3;
-  }
-  else if ((digitalRead(PE_2)==HIGH || digitalRead(PE_5)==HIGH || digitalRead(PF_1)==HIGH) && digitalRead(PE_3)==LOW){
-    m2=4;
-  }
-}
-*/
-
-/*void defensiva(void){
-  if (Serial3.available()){
-    serial=Serial3.read();
-    if(52<serial<57){
-      m1 = serial-52;
-      Serial.println(m1);
-    }
-    if(48<serial<53){
-      m2 = serial-48;
-      Serial.println(m2);
-    }
-  }
-}*/
 void defensiva(void){
   if (Serial3.available()){
     char readData[3];
