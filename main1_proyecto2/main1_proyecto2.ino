@@ -2449,7 +2449,7 @@ void mapeo_SD(char doc[]) {
     myFile.close();
   }
 }
-
+//progra para recibir los comandos provenientes del pic esclaco para controlar lel juego
 void defensiva(void){
   if (Serial3.available()){
     char readData[3];
